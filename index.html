@@ -89,6 +89,7 @@ input[type=file]{display:none}
 <div class="detail-overlay" id="detail" onclick="closeDetail(event)"></div>
 <div class="mo" id="modal"><div class="mo-c"><h2 id="mt"></h2><p id="mx"></p><button onclick="document.getElementById('modal').classList.remove('show')">太棒了！</button></div></div>
 
+<input type="file" id="cam" accept="image/*" capture="environment" style="display:none">
 <script>
 var IMG="https://www.mandai.com/content/dam/wrs/singapore-zoo/animals/signpost/1x1";
 var A=[
@@ -169,6 +170,5 @@ document.getElementById('cam').addEventListener('change',function(e){
 });
 try{render()}catch(e){document.getElementById('cards').innerHTML='<p style="padding:20px;color:red">加载出错，请刷新页面。错误：'+e.message+'</p>';console.error(e)}
 </script>
-<input type="file" id="cam" accept="image/*" capture="environment">
 </body>
 </html>
