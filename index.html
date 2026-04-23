@@ -80,7 +80,7 @@ input[type=file]{display:none}
 <div class="hd">
 <h1>🦁 若熙的动物探险手册 🐘</h1>
 <div class="sub">新加坡动物园 Singapore Zoo</div>
-<div class="prog"><div class="prog-text">已发现: <span id="fc">0</span> / 15 只动物</div><div class="prog-bg"><div class="prog-fill" id="pf" style="width:0%"></div></div></div>
+<div class="prog"><div class="prog-text">已发现: <span id="fc">0</span> / 24 只动物</div><div class="prog-bg"><div class="prog-fill" id="pf" style="width:0%"></div></div></div>
 <div class="badges"><span class="badge" id="b1">🥉 小小探险家</span><span class="badge" id="b2">🥈 动物达人</span><span class="badge" id="b3">🥇 动物园大师</span><span class="badge" id="b4">🔍 火眼金睛</span></div>
 </div>
 <div id="cards"></div>
@@ -148,9 +148,9 @@ function closeDetail(e){if(e&&e.target!==document.getElementById('detail')&&!e.t
 function markFound(id){if(S.f[id])return;S.f[id]=Date.now();sv();playFound();closeDetail();var emoji=A.find(function(x){return x.id===id}).emoji;setTimeout(function(){render();emojiRain(emoji);checkA()},300);}
 var curP=null;function takePhoto(id){curP=id;document.getElementById('cam').click()}
 document.getElementById('cam').addEventListener('change',function(e){var file=e.target.files[0];if(!file||!curP)return;var r=new FileReader();r.onload=function(ev){var img=new Image();img.onload=function(){var c=document.createElement('canvas');c.width=200;c.height=200;var ctx=c.getContext('2d');var m=Math.min(img.width,img.height);ctx.drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,200,200);S.p[curP]=c.toDataURL('image/jpeg',.6);sv();render()};img.src=ev.target.result};r.readAsDataURL(file);e.target.value=''});
-function upProg(){var n=Object.keys(S.f).length;document.getElementById('fc').textContent=n;document.getElementById('pf').style.width=Math.round(n/15*100)+'%';document.getElementById('b1').className='badge'+(n>=5?' on':'');document.getElementById('b2').className='badge'+(n>=10?' on':'');document.getElementById('b3').className='badge'+(n>=15?' on':'');var hf=['orangutan','mousedeer'].every(function(h){return S.f[h]});document.getElementById('b4').className='badge'+(hf?' on':'');}
+function upProg(){var n=Object.keys(S.f).length;document.getElementById('fc').textContent=n;document.getElementById('pf').style.width=Math.round(n/15*100)+'%';document.getElementById('b1').className='badge'+(n>=8?' on':'');document.getElementById('b2').className='badge'+(n>=16?' on':'');document.getElementById('b3').className='badge'+(n>=24?' on':'');var hf=['orangutan','mousedeer'].every(function(h){return S.f[h]});document.getElementById('b4').className='badge'+(hf?' on':'');}
 function emojiRain(emoji){var c=document.getElementById('cc');for(var i=0;i<50;i++){var el=document.createElement('div');el.className='emoji-rain';el.textContent=emoji;el.style.left=Math.random()*100+'%';el.style.top='-30px';el.style.fontSize=(Math.random()*20+20)+'px';el.style.animation='erain '+(Math.random()*2+1.5)+'s ease-out forwards';el.style.animationDelay=Math.random()*.8+'s';c.appendChild(el);setTimeout(function(e){e.remove()}.bind(null,el),4000);}}
-function checkA(){var n=Object.keys(S.f).length;if(n===5)showA('🥉 小小探险家！','若熙已经找到5只动物啦！继续加油！');else if(n===10)showA('🥈 动物达人！','哇！若熙找到10只动物了！还有5只等你发现！');else if(n===15)showA('🥇🎉 动物园大师！！！','若熙太厉害了！15只动物全部找到！你是最棒的小探险家！');}
+function checkA(){var n=Object.keys(S.f).length;if(n===8)showA('🥉 小小探险家！','若熙已经找到8只动物啦！继续加油！');else if(n===16)showA('🥈 动物达人！','哇！若熙找到16只动物了！还有8只等你发现！');else if(n===24)showA('🥇🎉 动物园大师！！！','若熙太厉害了！24只动物全部找到！你是最棒的小探险家！');}
 function showA(t,x){document.getElementById('mt').textContent=t;document.getElementById('mx').textContent=x;document.getElementById('modal').classList.add('show')}
 function resetAll(){if(confirm('确定要重新开始吗？')){S={f:{},p:{}};sv();render()}}
 
