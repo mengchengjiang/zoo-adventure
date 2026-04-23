@@ -237,6 +237,7 @@ function flip(id){
   var card=document.getElementById('c-'+id);
   if(card) card.classList.toggle('flip');
 }
+document.querySelectorAll('details').forEach(function(d){d.addEventListener('click',function(e){e.stopPropagation()})});
 function found(e,id){
   e.stopPropagation();
   if(S.f[id])return;
