@@ -20,37 +20,49 @@ body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;backg
 .zt{font-size:17px;font-weight:700;color:#2e7d32;padding:14px 14px 6px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 10px 10px}
 @media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr)}}
-.cw{-webkit-perspective:800px;perspective:800px;height:320px;margin-bottom:0}
+.cw{-webkit-perspective:800px;perspective:800px;height:360px;margin-bottom:0}
 .cd{position:relative;width:100%;height:100%;-webkit-transition:-webkit-transform .6s;transition:transform .6s;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;cursor:pointer;border-radius:16px}
 .cd.flip{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}
 .cf,.cb{position:absolute;top:0;left:0;width:100%;height:100%;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:16px}
-.cf{background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 8px;box-shadow:0 3px 10px rgba(0,0,0,.1);border:3px solid #e0e0e0;transition:border-color .3s;overflow:visible}
-.cf.found{border-color:#4caf50;box-shadow:0 4px 16px rgba(76,175,80,.3)}
-.cf .em{font-size:52px;margin-bottom:2px}
-.cf .nm{font-size:19px;font-weight:700;color:#333}
-.cf .en{font-size:11px;color:#999;margin-top:1px}
-.cf .tl{font-size:12px;color:#666;margin-top:4px;text-align:center}
-.cf .df{font-size:11px;margin-top:4px}
-.cf .ht{font-size:11px;color:#aaa;margin-top:6px;animation:pu 2s infinite}
+.cf{background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;box-shadow:0 3px 10px rgba(0,0,0,.1);border:3px solid #e0e0e0;transition:border-color .3s,background .5s;overflow:hidden}
+.cf.found{border-color:#ffc107;background:linear-gradient(135deg,#fffde7,#fff9c4,#fff176);box-shadow:0 4px 20px rgba(255,193,7,.4)}
+.cf .photo-bg{width:100%;height:100px;border-radius:10px;overflow:hidden;margin-bottom:4px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;position:relative}
+.cf .photo-bg img{width:100%;height:100%;object-fit:cover}
+.cf .photo-bg .em-overlay{position:absolute;font-size:40px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.cf.found .photo-bg{border:2px solid #ffc107}
+.cf .nm{font-size:17px;font-weight:700;color:#333}
+.cf .en{font-size:10px;color:#999;margin-top:1px}
+.cf .tl{font-size:11px;color:#666;margin-top:3px;text-align:center}
+.cf .sz{font-size:10px;color:#8d6e63;margin-top:2px;font-weight:600}
+.cf .df{font-size:10px;margin-top:3px}
+.cf .ht{font-size:10px;color:#aaa;margin-top:4px;animation:pu 2s infinite}
 @keyframes pu{0%,100%{opacity:.4}50%{opacity:1}}
 .cf .stamp{position:absolute;top:6px;right:6px;font-size:26px;display:none}
-.cf.found .stamp{display:block}
-.cf .pht{position:absolute;bottom:6px;right:6px;width:34px;height:34px;border-radius:8px;object-fit:cover;border:2px solid #4caf50;display:none}
-.cb{background:#fff;-webkit-transform:rotateY(180deg);transform:rotateY(180deg);padding:12px;display:flex;flex-direction:column;box-shadow:0 3px 10px rgba(0,0,0,.1);border:3px solid #2196f3;overflow-y:auto}
-.cb h3{font-size:15px;color:#1565c0;margin-bottom:6px}
-.back-btn{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;margin-bottom:8px;display:flex;align-items:center;gap:4px;color:#666;min-height:36px;-webkit-user-select:none;user-select:none}
-.cb .fs{font-size:12px;color:#555;line-height:1.6;margin-bottom:6px;list-style:none;padding:0}
+.cf.found .stamp{display:block;animation:stBounce .6s ease}
+@keyframes stBounce{0%{transform:scale(0)}50%{transform:scale(1.5)}100%{transform:scale(1)}}
+.cf .found-time{position:absolute;bottom:4px;left:0;width:100%;text-align:center;font-size:9px;color:#e65100;font-weight:700;display:none}
+.cf.found .found-time{display:block}
+.cf.found .em-overlay{animation:emBounce 1s ease}
+@keyframes emBounce{0%{transform:scale(1)}25%{transform:scale(1.4)}50%{transform:scale(0.9)}75%{transform:scale(1.2)}100%{transform:scale(1)}}
+@keyframes goldShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.cf.found{animation:goldShimmer 3s ease-in-out infinite;background-size:200% 100%}
+.cf .pht{position:absolute;bottom:20px;right:6px;width:30px;height:30px;border-radius:6px;object-fit:cover;border:2px solid #4caf50;display:none}
+.cb{background:#fff;-webkit-transform:rotateY(180deg);transform:rotateY(180deg);padding:10px;display:flex;flex-direction:column;box-shadow:0 3px 10px rgba(0,0,0,.1);border:3px solid #2196f3;overflow-y:auto}
+.cb h3{font-size:14px;color:#1565c0;margin-bottom:4px}
+.cb .fs{font-size:11px;color:#555;line-height:1.5;margin-bottom:4px;list-style:none;padding:0}
 .cb .fs li::before{content:"🌟 "}
-.cb .fs li{margin-bottom:3px}
-.cb .qz{background:#fff8e1;border-radius:8px;padding:8px;font-size:12px;margin-bottom:6px}
+.cb .fs li{margin-bottom:2px}
+.cb .qz{background:#fff8e1;border-radius:8px;padding:6px;font-size:11px;margin-bottom:4px}
 .cb .ql{font-weight:700;color:#f57f17}
-.cb .loc{font-size:11px;color:#888;margin-bottom:8px}
-.br{display:flex;gap:5px;margin-top:auto}
-.bt{flex:1;padding:10px 6px;border:none;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:3px;min-height:44px;-webkit-user-select:none;user-select:none}
+.cb .loc{font-size:10px;color:#888;margin-bottom:4px}
+.br{display:flex;gap:4px;margin-top:auto;flex-wrap:wrap}
+.bt{flex:1;padding:8px 4px;border:none;border-radius:8px;font-size:10px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:2px;min-height:38px;min-width:60px;-webkit-user-select:none;user-select:none}
 .bt-v{background:#ff5252;color:#fff}
 .bt-p{background:#2196f3;color:#fff}
 .bt-f{background:#4caf50;color:#fff}
 .bt-f.done{background:#aaa}
+.bt-s{background:#ff9800;color:#fff}
+.bt-m{background:#7e57c2;color:#fff}
 .mo{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:200;justify-content:center;align-items:center}
 .mo.show{display:flex}
 .mo-c{background:#fff;border-radius:20px;padding:24px;width:90%;max-width:360px;text-align:center}
@@ -81,144 +93,248 @@ input[type=file]{display:none}
   </div>
 </div>
 
-<!-- ===== Wild Africa ===== -->
-<div class="zt">Wild Africa 🌍</div>
-<div class="grid">
-
-<div class="cw"><div class="cd" id="c-giraffe" onclick="flip('giraffe')">
-<div class="cf" id="f-giraffe"><div class="stamp">✅</div><div class="em">🦒</div><div class="nm">长颈鹿</div><div class="en">Giraffe</div><div class="tl">我的脖子比你还高！</div><div class="df">⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-giraffe"></div>
-<div class="cb"><h3>🦒 长颈鹿 <span style="font-size:11px;color:#999">Giraffe</span></h3><ul class="fs"><li>长颈鹿的舌头是紫色的，有50厘米长！</li><li>它们站着睡觉，每次只睡几分钟</li><li>小长颈鹿出生时就有1.8米高</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>长颈鹿为什么脖子这么长？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">为了吃高高树上的叶子！</div></details></div><div class="loc">📍 Wild Africa 区，靠近入口</div><div class="br"><button class="bt bt-v" onclick="vid(event,'长颈鹿+儿童科普+动物')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'giraffe')">📷 拍照</button><button class="bt bt-f" id="bf-giraffe" onclick="found(event,'giraffe')">👀 找到了！</button></div></div>
-</div></div>
-
-<div class="cw"><div class="cd" id="c-zebra" onclick="flip('zebra')">
-<div class="cf" id="f-zebra"><div class="stamp">✅</div><div class="em">🦓</div><div class="nm">斑马</div><div class="en">Zebra</div><div class="tl">我穿的是条纹睡衣！</div><div class="df">⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-zebra"></div>
-<div class="cb"><h3>🦓 斑马 <span style="font-size:11px;color:#999">Zebra</span></h3><ul class="fs"><li>每只斑马的条纹都不一样，就像人的指纹</li><li>条纹可以帮它们赶走蚊子</li><li>斑马其实是黑色皮肤上有白色条纹</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>斑马是白底黑条纹，还是黑底白条纹？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">黑底白条纹！它们的皮肤是黑色的</div></details></div><div class="loc">📍 Wild Africa 区</div><div class="br"><button class="bt bt-v" onclick="vid(event,'斑马+儿童+动物百科')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'zebra')">📷 拍照</button><button class="bt bt-f" id="bf-zebra" onclick="found(event,'zebra')">👀 找到了！</button></div></div>
-</div></div>
-
-<div class="cw"><div class="cd" id="c-lion" onclick="flip('lion')">
-<div class="cf" id="f-lion"><div class="stamp">✅</div><div class="em">🦁</div><div class="nm">狮子</div><div class="en">Lion</div><div class="tl">我是森林之王！吼～</div><div class="df">⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-lion"></div>
-<div class="cb"><h3>🦁 狮子 <span style="font-size:11px;color:#999">Lion</span></h3><ul class="fs"><li>只有公狮子才有鬃毛（脖子上的长毛）</li><li>狮子一天要睡20个小时！比若熙睡得多多了</li><li>母狮子负责捕猎，公狮子负责保护家</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>狮子一天睡多少个小时？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">20个小时！它们是大懒虫</div></details></div><div class="loc">📍 Wild Africa 区</div><div class="br"><button class="bt bt-v" onclick="vid(event,'狮子+儿童科普+中文')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'lion')">📷 拍照</button><button class="bt bt-f" id="bf-lion" onclick="found(event,'lion')">👀 找到了！</button></div></div>
-</div></div>
-
-<div class="cw"><div class="cd" id="c-cheetah" onclick="flip('cheetah')">
-<div class="cf" id="f-cheetah"><div class="stamp">✅</div><div class="em">🐆</div><div class="nm">猎豹</div><div class="en">Cheetah</div><div class="tl">我跑起来比汽车还快！</div><div class="df">⭐⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-cheetah"></div>
-<div class="cb"><h3>🐆 猎豹 <span style="font-size:11px;color:#999">Cheetah</span></h3><ul class="fs"><li>猎豹是陆地上跑得最快的动物，时速120公里</li><li>它脸上有两条黑色"泪痕"</li><li>它只能跑30秒就要休息，像短跑冲刺</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>猎豹脸上的黑色条纹叫什么？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">叫"泪痕"，像在流眼泪一样</div></details></div><div class="loc">📍 Wild Africa 区</div><div class="br"><button class="bt bt-v" onclick="vid(event,'猎豹+儿童+速度最快的动物')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'cheetah')">📷 拍照</button><button class="bt bt-f" id="bf-cheetah" onclick="found(event,'cheetah')">👀 找到了！</button></div></div>
-</div></div>
-
-</div>
-
-<!-- ===== Primate Kingdom ===== -->
-<div class="zt">Primate Kingdom 🐒</div>
-<div class="grid">
-
-<div class="cw"><div class="cd" id="c-orangutan" onclick="flip('orangutan')">
-<div class="cf" id="f-orangutan"><div class="stamp">✅</div><div class="em">🦧</div><div class="nm">红毛猩猩</div><div class="en">Orangutan</div><div class="tl">我是动物园的大明星！</div><div class="df">⭐ 🔍隐藏款</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-orangutan"></div>
-<div class="cb"><h3>🦧 红毛猩猩 <span style="font-size:11px;color:#999">Orangutan</span></h3><ul class="fs"><li>红毛猩猩的名字意思是"森林里的人"</li><li>它们会用树叶当雨伞挡雨</li><li>新加坡动物园最有名的猩猩叫阿明（Ah Meng）</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>"Orangutan"在马来语里是什么意思？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">森林里的人！</div></details></div><div class="loc">📍 Orangutan Island — 动物园明星区</div><div class="br"><button class="bt bt-v" onclick="vid(event,'红毛猩猩+儿童+科普+中文')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'orangutan')">📷 拍照</button><button class="bt bt-f" id="bf-orangutan" onclick="found(event,'orangutan')">👀 找到了！</button></div></div>
-</div></div>
-
-<div class="cw"><div class="cd" id="c-monkey" onclick="flip('monkey')">
-<div class="cf" id="f-monkey"><div class="stamp">✅</div><div class="em">🐵</div><div class="nm">白面僧面猴</div><div class="en">White-faced Saki</div><div class="tl">我的脸像戴了面具！</div><div class="df">⭐⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-monkey"></div>
-<div class="cb"><h3>🐵 白面僧面猴 <span style="font-size:11px;color:#999">White-faced Saki</span></h3><ul class="fs"><li>只有公猴的脸是白色的，母猴是灰色的</li><li>它们用长长的尾巴在树上荡来荡去</li><li>它们最喜欢吃水果和种子</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>为什么叫"白面"僧面猴？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">因为公猴的脸是白色的，像戴了面具！</div></details></div><div class="loc">📍 Primate Kingdom 区</div><div class="br"><button class="bt bt-v" onclick="vid(event,'僧面猴+灵长类+儿童+动物')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'monkey')">📷 拍照</button><button class="bt bt-f" id="bf-monkey" onclick="found(event,'monkey')">👀 找到了！</button></div></div>
-</div></div>
-
-<div class="cw"><div class="cd" id="c-lemur" onclick="flip('lemur')">
-<div class="cf" id="f-lemur"><div class="stamp">✅</div><div class="em">🐒</div><div class="nm">环尾狐猴</div><div class="en">Ring-tailed Lemur</div><div class="tl">我的尾巴有黑白条纹！</div><div class="df">⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-lemur"></div>
-<div class="cb"><h3>🐒 环尾狐猴 <span style="font-size:11px;color:#999">Ring-tailed Lemur</span></h3><ul class="fs"><li>它们来自马达加斯加岛</li><li>尾巴比身体还长，有13条黑白条纹</li><li>它们喜欢一群一起晒太阳，像在做瑜伽</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>狐猴来自哪个岛？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">马达加斯加！就是那个动画片《马达加斯加》的地方</div></details></div><div class="loc">📍 Primate Kingdom 区</div><div class="br"><button class="bt bt-v" onclick="vid(event,'环尾狐猴+马达加斯加+儿童')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'lemur')">📷 拍照</button><button class="bt bt-f" id="bf-lemur" onclick="found(event,'lemur')">👀 找到了！</button></div></div>
-</div></div>
-
-</div>
-
-<!-- ===== Elephants of Asia ===== -->
-<div class="zt">Elephants of Asia 🐘</div>
-<div class="grid">
-
-<div class="cw"><div class="cd" id="c-elephant" onclick="flip('elephant')">
-<div class="cf" id="f-elephant"><div class="stamp">✅</div><div class="em">🐘</div><div class="nm">亚洲象</div><div class="en">Asian Elephant</div><div class="tl">我用鼻子洗澡！</div><div class="df">⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-elephant"></div>
-<div class="cb"><h3>🐘 亚洲象 <span style="font-size:11px;color:#999">Asian Elephant</span></h3><ul class="fs"><li>大象的鼻子有4万多块肌肉！</li><li>它们每天要吃150公斤食物</li><li>大象会游泳，还会用鼻子当呼吸管</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>大象用鼻子能做什么？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">喝水、洗澡、闻味道、抓东西、打招呼，什么都能做！</div></details></div><div class="loc">📍 Elephants of Asia 区 — 有喂食体验</div><div class="br"><button class="bt bt-v" onclick="vid(event,'大象+儿童科普+鼻子+中文')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'elephant')">📷 拍照</button><button class="bt bt-f" id="bf-elephant" onclick="found(event,'elephant')">👀 找到了！</button></div></div>
-</div></div>
-
-</div>
-
-<!-- ===== Reptile Garden ===== -->
-<div class="zt">Reptile Garden 🦎</div>
-<div class="grid">
-
-<div class="cw"><div class="cd" id="c-komodo" onclick="flip('komodo')">
-<div class="cf" id="f-komodo"><div class="stamp">✅</div><div class="em">🦎</div><div class="nm">科莫多龙</div><div class="en">Komodo Dragon</div><div class="tl">我是世界上最大的蜥蜴！</div><div class="df">⭐⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-komodo"></div>
-<div class="cb"><h3>🦎 科莫多龙 <span style="font-size:11px;color:#999">Komodo Dragon</span></h3><ul class="fs"><li>科莫多龙可以长到3米长，比爸爸还高</li><li>它的口水有毒！</li><li>它用舌头闻味道，不是用鼻子</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>科莫多龙用什么闻味道？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">用舌头！它会伸出分叉的舌头来闻</div></details></div><div class="loc">📍 RepTopia — Reptile Garden 区</div><div class="br"><button class="bt bt-v" onclick="vid(event,'科莫多龙+巨蜥+儿童+中文')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'komodo')">📷 拍照</button><button class="bt bt-f" id="bf-komodo" onclick="found(event,'komodo')">👀 找到了！</button></div></div>
-</div></div>
-
-<div class="cw"><div class="cd" id="c-tortoise" onclick="flip('tortoise')">
-<div class="cf" id="f-tortoise"><div class="stamp">✅</div><div class="em">🐢</div><div class="nm">大象龟</div><div class="en">Giant Tortoise</div><div class="tl">我走得比蜗牛还慢！</div><div class="df">⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-tortoise"></div>
-<div class="cb"><h3>🐢 大象龟 <span style="font-size:11px;color:#999">Giant Tortoise</span></h3><ul class="fs"><li>大象龟可以活200岁！</li><li>它的壳就是它的房子，走到哪背到哪</li><li>它一天只走几百米，从不着急</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>大象龟最多能活多少岁？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">200岁！它们是动物界的老寿星</div></details></div><div class="loc">📍 Tortoise Shell-ter</div><div class="br"><button class="bt bt-v" onclick="vid(event,'大象龟+象龟+长寿+儿童')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'tortoise')">📷 拍照</button><button class="bt bt-f" id="bf-tortoise" onclick="found(event,'tortoise')">👀 找到了！</button></div></div>
-</div></div>
-
-</div>
-
-<!-- ===== Fragile Forest ===== -->
-<div class="zt">Fragile Forest 🌿</div>
-<div class="grid">
-
-<div class="cw"><div class="cd" id="c-flyingfox" onclick="flip('flyingfox')">
-<div class="cf" id="f-flyingfox"><div class="stamp">✅</div><div class="em">🦇</div><div class="nm">飞狐（大蝙蝠）</div><div class="en">Flying Fox</div><div class="tl">我倒挂着睡觉！</div><div class="df">⭐⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-flyingfox"></div>
-<div class="cb"><h3>🦇 飞狐 <span style="font-size:11px;color:#999">Flying Fox</span></h3><ul class="fs"><li>飞狐翅膀展开有1.5米宽</li><li>它们只吃水果，不吸血！</li><li>白天倒挂着睡觉，晚上才出去找吃的</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>飞狐吃什么？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">吃水果！它们是素食者，不是吸血鬼</div></details></div><div class="loc">📍 Fragile Forest 自由活动区 — 抬头看！</div><div class="br"><button class="bt bt-v" onclick="vid(event,'飞狐+蝙蝠+儿童+水果蝠')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'flyingfox')">📷 拍照</button><button class="bt bt-f" id="bf-flyingfox" onclick="found(event,'flyingfox')">👀 找到了！</button></div></div>
-</div></div>
-
-<div class="cw"><div class="cd" id="c-mousedeer" onclick="flip('mousedeer')">
-<div class="cf" id="f-mousedeer"><div class="stamp">✅</div><div class="em">🦌</div><div class="nm">鼠鹿</div><div class="en">Mouse Deer</div><div class="tl">我比兔子还小！</div><div class="df">⭐⭐⭐ 🔍隐藏款</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-mousedeer"></div>
-<div class="cb"><h3>🦌 鼠鹿 <span style="font-size:11px;color:#999">Mouse Deer</span></h3><ul class="fs"><li>鼠鹿是世界上最小的有蹄动物</li><li>它只有兔子那么大，2公斤重</li><li>它非常害羞，要很安静才能发现它</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>鼠鹿有多重？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">只有2公斤！比若熙小时候还轻</div></details></div><div class="loc">📍 Fragile Forest — 要仔细看地面！</div><div class="br"><button class="bt bt-v" onclick="vid(event,'鼠鹿+最小+有蹄类+动物')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'mousedeer')">📷 拍照</button><button class="bt bt-f" id="bf-mousedeer" onclick="found(event,'mousedeer')">👀 找到了！</button></div></div>
-</div></div>
-
-</div>
-
-<!-- ===== KidzWorld ===== -->
-<div class="zt">KidzWorld 🎪</div>
-<div class="grid">
-
-<div class="cw"><div class="cd" id="c-rabbit" onclick="flip('rabbit')">
-<div class="cf" id="f-rabbit"><div class="stamp">✅</div><div class="em">🐰</div><div class="nm">兔子</div><div class="en">Rabbit</div><div class="tl">摸摸我软软的耳朵！</div><div class="df">⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-rabbit"></div>
-<div class="cb"><h3>🐰 兔子 <span style="font-size:11px;color:#999">Rabbit</span></h3><ul class="fs"><li>兔子的耳朵可以转来转去，像雷达一样</li><li>兔子的牙齿一直在长，所以要不停地啃东西</li><li>它们开心的时候会跳起来转圈圈</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>兔子开心的时候会做什么？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">会跳起来转圈圈！叫做"binky"</div></details></div><div class="loc">📍 KidzWorld 互动区 — 可以摸！</div><div class="br"><button class="bt bt-v" onclick="vid(event,'兔子+宠物+儿童+中文+可爱')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'rabbit')">📷 拍照</button><button class="bt bt-f" id="bf-rabbit" onclick="found(event,'rabbit')">👀 找到了！</button></div></div>
-</div></div>
-
-<div class="cw"><div class="cd" id="c-pony" onclick="flip('pony')">
-<div class="cf" id="f-pony"><div class="stamp">✅</div><div class="em">🐴</div><div class="nm">矮马</div><div class="en">Pony</div><div class="tl">我是迷你小马！</div><div class="df">⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-pony"></div>
-<div class="cb"><h3>🐴 矮马 <span style="font-size:11px;color:#999">Pony</span></h3><ul class="fs"><li>矮马虽然小，但力气很大</li><li>它们很温柔，喜欢跟小朋友做朋友</li><li>矮马的毛在冬天会变得更长更厚</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>矮马和大马有什么不一样？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">矮马腿短身体小，但一样聪明和有力气！</div></details></div><div class="loc">📍 KidzWorld — 有骑马体验</div><div class="br"><button class="bt bt-v" onclick="vid(event,'小马+矮马+儿童+中文')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'pony')">📷 拍照</button><button class="bt bt-f" id="bf-pony" onclick="found(event,'pony')">👀 找到了！</button></div></div>
-</div></div>
-
-</div>
-
-<!-- ===== Splash Safari ===== -->
-<div class="zt">Splash Safari 🌊</div>
-<div class="grid">
-
-<div class="cw"><div class="cd" id="c-sealion" onclick="flip('sealion')">
-<div class="cf" id="f-sealion"><div class="stamp">✅</div><div class="em">🦭</div><div class="nm">海狮</div><div class="en">Sea Lion</div><div class="tl">看我表演顶球！</div><div class="df">⭐</div><div class="ht">👆 点我看介绍</div><img class="pht" id="ph-sealion"></div>
-<div class="cb"><h3>🦭 海狮 <span style="font-size:11px;color:#999">Sea Lion</span></h3><ul class="fs"><li>海狮会用鼻子顶球、拍手鼓掌</li><li>它们游泳速度可以达到每小时40公里</li><li>海狮很聪明，能学会各种表演动作</li></ul><div class="qz"><div class="ql">🧠 考考若熙：</div>海狮和海豹有什么不一样？<br><details style="margin-top:4px"><summary style="cursor:pointer;color:#f57f17;font-size:11px">点击看答案</summary><div style="margin-top:4px;color:#555;font-size:12px">海狮有小耳朵，海豹没有！海狮还能用前肢走路</div></details></div><div class="loc">📍 Splash Safari Show — 10:30am / 5:00pm</div><div class="br"><button class="bt bt-v" onclick="vid(event,'海狮+表演+儿童+中文+科普')">▶ 视频</button><button class="bt bt-p" onclick="photo(event,'sealion')">📷 拍照</button><button class="bt bt-f" id="bf-sealion" onclick="found(event,'sealion')">👀 找到了！</button></div></div>
-</div></div>
-
-</div>
+<div id="cards"></div>
 
 <button class="rst" onclick="resetAll()">🔄 重新开始探险</button>
-
 <div class="confetti-container" id="cc"></div>
-
-<div class="mo" id="modal">
-  <div class="mo-c">
-    <h2 id="mt"></h2>
-    <p id="mx"></p>
-    <button onclick="document.getElementById('modal').classList.remove('show')">太棒了！</button>
-  </div>
-</div>
-
+<div class="mo" id="modal"><div class="mo-c"><h2 id="mt"></h2><p id="mx"></p><button onclick="document.getElementById('modal').classList.remove('show')">太棒了！</button></div></div>
 <input type="file" id="cam" accept="image/*" capture="environment">
 
 <script>
-var ids=['giraffe','zebra','lion','cheetah','orangutan','monkey','lemur','elephant','komodo','tortoise','flyingfox','mousedeer','rabbit','pony','sealion'];
+var A=[
+{id:'giraffe',zone:'Wild Africa 🌍',emoji:'🦒',name:'长颈鹿',en:'Giraffe',tag:'我的脖子比你还高！',diff:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Giraffe_Mikumi_National_Park.jpg/220px-Giraffe_Mikumi_National_Park.jpg',
+ size:'🦒 = 3个爸爸叠起来那么高（5.5米）',
+ facts:['舌头是紫色的，有50厘米长！','站着睡觉，每次只睡几分钟','小长颈鹿出生时就有1.8米高，比爸爸还高'],
+ quiz:'长颈鹿为什么脖子这么长？',ans:'为了吃高高树上的叶子！',
+ loc:'Wild Africa 区，靠近入口',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones/giraffe.html',
+ snd:[400,500,350,450],vidQ:'长颈鹿+儿童科普+动物'},
+
+{id:'zebra',zone:'Wild Africa 🌍',emoji:'🦓',name:'斑马',en:'Zebra',tag:'我穿的是条纹睡衣！',diff:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Plains_zebra_%28Equus_quagga%29.jpg/220px-Plains_zebra_%28Equus_quagga%29.jpg',
+ size:'🦓 = 跟爸爸差不多高（1.5米）',
+ facts:['每只斑马的条纹都不一样，就像人的指纹','条纹可以帮它们赶走蚊子','其实是黑色皮肤上有白色条纹'],
+ quiz:'斑马是白底黑条纹，还是黑底白条纹？',ans:'黑底白条纹！它们的皮肤是黑色的',
+ loc:'Wild Africa 区',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones/zebra.html',
+ snd:[200,250,200,300],vidQ:'斑马+儿童+动物百科'},
+
+{id:'lion',zone:'Wild Africa 🌍',emoji:'🦁',name:'狮子',en:'Lion',tag:'我是森林之王！吼～',diff:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/220px-Lion_waiting_in_Namibia.jpg',
+ size:'🦁 = 4个若熙那么重（190公斤）',
+ facts:['只有公狮子才有鬃毛（脖子上的长毛）','一天要睡20个小时！比若熙睡得多多了','母狮子负责捕猎，公狮子负责保护家'],
+ quiz:'狮子一天睡多少个小时？',ans:'20个小时！它们是大懒虫',
+ loc:'Wild Africa 区',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones/lion.html',
+ snd:[80,100,60,90],vidQ:'狮子+儿童科普+中文'},
+
+{id:'cheetah',zone:'Wild Africa 🌍',emoji:'🐆',name:'猎豹',en:'Cheetah',tag:'我跑起来比汽车还快！',diff:2,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/TheCheethcat.jpg/220px-TheCheethcat.jpg',
+ size:'🐆 = 跑起来比爸爸开车还快（120km/h）',
+ facts:['陆地上跑得最快的动物，时速120公里','脸上有两条黑色"泪痕"','只能跑30秒就要休息，像短跑冲刺'],
+ quiz:'猎豹脸上的黑色条纹叫什么？',ans:'叫"泪痕"，像在流眼泪一样',
+ loc:'Wild Africa 区',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones/cheetah.html',
+ snd:[300,400,250,350],vidQ:'猎豹+儿童+速度最快的动物'},
+
+{id:'orangutan',zone:'Primate Kingdom 🐒',emoji:'🦧',name:'红毛猩猩',en:'Orangutan',tag:'我是动物园的大明星！',diff:1,hidden:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Orang_Utan%2C_Pair_orangered.jpg/220px-Orang_Utan%2C_Pair_orangered.jpg',
+ size:'🦧 = 跟爸爸一样重（90公斤），但手臂比爸爸长很多！',
+ facts:['名字意思是"森林里的人"','会用树叶当雨伞挡雨','新加坡动物园最有名的猩猩叫阿明'],
+ quiz:'"Orangutan"在马来语里是什么意思？',ans:'森林里的人！',
+ loc:'Orangutan Island — 动物园明星区',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones/orangutan.html',
+ snd:[120,150,100,180],vidQ:'红毛猩猩+儿童+科普+中文'},
+
+{id:'monkey',zone:'Primate Kingdom 🐒',emoji:'🐵',name:'白面僧面猴',en:'White-faced Saki',tag:'我的脸像戴了面具！',diff:2,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/White-faced_Saki_%28Pithecia_pithecia%29_-_Bert_de_Tilly.jpg/220px-White-faced_Saki_%28Pithecia_pithecia%29_-_Bert_de_Tilly.jpg',
+ size:'🐵 = 只有2个若熙的水壶那么重（2公斤）',
+ facts:['只有公猴的脸是白色的，母猴是灰色的','用长尾巴在树上荡来荡去','最喜欢吃水果和种子'],
+ quiz:'为什么叫"白面"僧面猴？',ans:'因为公猴的脸是白色的，像戴了面具！',
+ loc:'Primate Kingdom 区',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones.html',
+ snd:[500,600,450,550],vidQ:'僧面猴+灵长类+儿童+动物'},
+
+{id:'lemur',zone:'Primate Kingdom 🐒',emoji:'🐒',name:'环尾狐猴',en:'Ring-tailed Lemur',tag:'我的尾巴有黑白条纹！',diff:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Lemur_catta_001.jpg/220px-Lemur_catta_001.jpg',
+ size:'🐒 = 跟若熙的书包差不多重（2.5公斤）',
+ facts:['来自马达加斯加岛','尾巴比身体还长，有13条黑白条纹','喜欢一群一起晒太阳，像在做瑜伽'],
+ quiz:'狐猴来自哪个岛？',ans:'马达加斯加！就是那个动画片里的地方',
+ loc:'Primate Kingdom 区',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones.html',
+ snd:[600,700,500,650],vidQ:'环尾狐猴+马达加斯加+儿童'},
+
+{id:'elephant',zone:'Elephants of Asia 🐘',emoji:'🐘',name:'亚洲象',en:'Asian Elephant',tag:'我用鼻子洗澡！',diff:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Elephas_maximus_%28Bandipur%29.jpg/220px-Elephas_maximus_%28Bandipur%29.jpg',
+ size:'🐘 = 10个爸爸那么重！（4000公斤）每天吃的食物 = 若熙体重的10倍',
+ facts:['鼻子有4万多块肌肉！','每天要吃150公斤食物，吃饭要吃16个小时','会游泳，还会用鼻子当呼吸管'],
+ quiz:'大象用鼻子能做什么？',ans:'喝水、洗澡、闻味道、抓东西、打招呼，什么都能做！',
+ loc:'Elephants of Asia 区 — 有喂食体验',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones/asian-elephant.html',
+ snd:[60,80,50,70],vidQ:'大象+儿童科普+鼻子+中文'},
+
+{id:'komodo',zone:'Reptile Garden 🦎',emoji:'🦎',name:'科莫多龙',en:'Komodo Dragon',tag:'我是世界上最大的蜥蜴！',diff:2,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/z/z4/Komodo_dragon_with_tongue.jpg/220px-Komodo_dragon_with_tongue.jpg',
+ size:'🦎 = 比爸爸还长（3米），跟一辆小汽车差不多',
+ facts:['可以长到3米长','口水有毒！','用舌头闻味道，不是用鼻子'],
+ quiz:'科莫多龙用什么闻味道？',ans:'用舌头！它会伸出分叉的舌头来闻',
+ loc:'RepTopia — Reptile Garden 区',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones/komodo-dragon.html',
+ snd:[100,130,80,110],vidQ:'科莫多龙+巨蜥+儿童+中文'},
+
+{id:'tortoise',zone:'Reptile Garden 🦎',emoji:'🐢',name:'大象龟',en:'Giant Tortoise',tag:'我走得比蜗牛还慢！',diff:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Aldabra_giant_tortoise_%28Aldabrachelys_gigantea%29%2C_Cousin_Island%2C_Seychelles_-_20100507.jpg/220px-Aldabra_giant_tortoise_%28Aldabrachelys_gigantea%29%2C_Cousin_Island%2C_Seychelles_-_20100507.jpg',
+ size:'🐢 = 2个若熙那么重（30公斤），壳比若熙的桌子还大',
+ facts:['可以活200岁！','壳就是它的房子，走到哪背到哪','一天只走几百米，从不着急'],
+ quiz:'大象龟最多能活多少岁？',ans:'200岁！它们是动物界的老寿星',
+ loc:'Tortoise Shell-ter',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones.html',
+ snd:[150,120,180,130],vidQ:'大象龟+象龟+长寿+儿童'},
+
+{id:'flyingfox',zone:'Fragile Forest 🌿',emoji:'🦇',name:'飞狐',en:'Flying Fox',tag:'我倒挂着睡觉！',diff:2,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Pteropus_vampyrus_-_Kalong.jpg/220px-Pteropus_vampyrus_-_Kalong.jpg',
+ size:'🦇 = 翅膀展开比若熙张开手臂还宽（1.5米）',
+ facts:['翅膀展开有1.5米宽','只吃水果，不吸血！','白天倒挂着睡觉，晚上才出去找吃的'],
+ quiz:'飞狐吃什么？',ans:'吃水果！它们是素食者，不是吸血鬼',
+ loc:'Fragile Forest 自由活动区 — 抬头看！',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones.html',
+ snd:[800,900,700,850],vidQ:'飞狐+蝙蝠+儿童+水果蝠'},
+
+{id:'mousedeer',zone:'Fragile Forest 🌿',emoji:'🦌',name:'鼠鹿',en:'Mouse Deer',tag:'我比兔子还小！',diff:3,hidden:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Tragulus_javanicus_-_Kanchi.jpg/220px-Tragulus_javanicus_-_Kanchi.jpg',
+ size:'🦌 = 只有一瓶大矿泉水那么重（2公斤），比若熙的玩具熊还小！',
+ facts:['世界上最小的有蹄动物','只有兔子那么大，2公斤重','非常害羞，要很安静才能发现它'],
+ quiz:'鼠鹿有多重？',ans:'只有2公斤！比若熙小时候还轻',
+ loc:'Fragile Forest — 要仔细看地面！',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones.html',
+ snd:[700,750,680,720],vidQ:'鼠鹿+最小+有蹄类+动物'},
+
+{id:'rabbit',zone:'KidzWorld 🎪',emoji:'🐰',name:'兔子',en:'Rabbit',tag:'摸摸我软软的耳朵！',diff:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Oryctolagus_cuniculus_Rcdo.jpg/220px-Oryctolagus_cuniculus_Rcdo.jpg',
+ size:'🐰 = 跟若熙的枕头差不多大（2公斤）',
+ facts:['耳朵可以转来转去，像雷达一样','牙齿一直在长，所以要不停地啃东西','开心的时候会跳起来转圈圈'],
+ quiz:'兔子开心的时候会做什么？',ans:'会跳起来转圈圈！叫做"binky"',
+ loc:'KidzWorld 互动区 — 可以摸！',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones.html',
+ snd:[600,650,580,620],vidQ:'兔子+宠物+儿童+中文+可爱'},
+
+{id:'pony',zone:'KidzWorld 🎪',emoji:'🐴',name:'矮马',en:'Pony',tag:'我是迷你小马！',diff:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Shetland_Ponies.jpg/220px-Shetland_Ponies.jpg',
+ size:'🐴 = 跟若熙差不多高（1米），但比爸爸重（200公斤）',
+ facts:['虽然小但力气很大','很温柔，喜欢跟小朋友做朋友','毛在冬天会变得更长更厚'],
+ quiz:'矮马和大马有什么不一样？',ans:'矮马腿短身体小，但一样聪明和有力气！',
+ loc:'KidzWorld — 有骑马体验',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones.html',
+ snd:[200,250,180,230],vidQ:'小马+矮马+儿童+中文'},
+
+{id:'sealion',zone:'Splash Safari 🌊',emoji:'🦭',name:'海狮',en:'Sea Lion',tag:'看我表演顶球！',diff:1,
+ img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/California_sea_lion_in_La_Jolla_%2870568%29.jpg/220px-California_sea_lion_in_La_Jolla_%2870568%29.jpg',
+ size:'🦭 = 2个爸爸那么重（300公斤），游泳速度 = 爸爸骑自行车那么快',
+ facts:['会用鼻子顶球、拍手鼓掌','游泳速度每小时40公里','很聪明，能学会各种表演动作'],
+ quiz:'海狮和海豹有什么不一样？',ans:'海狮有小耳朵，海豹没有！海狮还能用前肢走路',
+ loc:'Splash Safari Show — 10:30am / 5:00pm',map:'https://www.mandai.com/en/singapore-zoo/animals-and-zones/california-sea-lion.html',
+ snd:[150,200,120,180],vidQ:'海狮+表演+儿童+中文+科普'}
+];
+
 var hidden=['orangutan','mousedeer'];
-var S=JSON.parse(localStorage.getItem('zoo-rx')||'{}');
+var S=JSON.parse(localStorage.getItem('zoo-rx2')||'{}');
 if(!S.f)S.f={};if(!S.p)S.p={};
-function sv(){localStorage.setItem('zoo-rx',JSON.stringify(S))}
-function up(){
+function sv(){localStorage.setItem('zoo-rx2',JSON.stringify(S))}
+
+// Audio context for sounds
+var actx;
+function getAudio(){if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();return actx;}
+
+function playFound(){
+  var c=getAudio();
+  var notes=[523,659,784,1047];
+  notes.forEach(function(freq,i){
+    var o=c.createOscillator();var g=c.createGain();
+    o.connect(g);g.connect(c.destination);
+    o.frequency.value=freq;o.type='sine';
+    g.gain.setValueAtTime(0.3,c.currentTime+i*0.12);
+    g.gain.exponentialRampToValueAtTime(0.01,c.currentTime+i*0.12+0.3);
+    o.start(c.currentTime+i*0.12);o.stop(c.currentTime+i*0.12+0.3);
+  });
+}
+
+function playAnimal(e,sndArr){
+  e.stopPropagation();
+  var c=getAudio();
+  sndArr.forEach(function(freq,i){
+    var o=c.createOscillator();var g=c.createGain();
+    o.connect(g);g.connect(c.destination);
+    o.frequency.value=freq;
+    o.type=freq<150?'sawtooth':freq<400?'triangle':'sine';
+    g.gain.setValueAtTime(0.25,c.currentTime+i*0.15);
+    g.gain.exponentialRampToValueAtTime(0.01,c.currentTime+i*0.15+0.25);
+    o.start(c.currentTime+i*0.15);o.stop(c.currentTime+i*0.15+0.25);
+  });
+}
+
+function render(){
+  var html='';var cz='';
+  A.forEach(function(a){
+    if(a.zone!==cz){if(cz)html+='</div>';cz=a.zone;html+='<div class="zt">'+a.zone+'</div><div class="grid">';}
+    var isF=!!S.f[a.id],hasP=!!S.p[a.id];
+    var ds='⭐'.repeat(a.diff)+(a.hidden?' 🔍隐藏款':'');
+    var ft=isF?new Date(S.f[a.id]):'';
+    var ftStr=ft?'若熙在 '+ft.getHours()+':'+('0'+ft.getMinutes()).slice(-2)+' 找到了'+a.name+'！':'';
+
+    html+='<div class="cw"><div class="cd" id="c-'+a.id+'" onclick="flip(\''+a.id+'\')">'+
+    '<div class="cf'+(isF?' found':'')+'" id="f-'+a.id+'">'+
+      '<div class="stamp">⭐</div>'+
+      '<div class="photo-bg"><img src="'+a.img+'" alt="'+a.name+'" onerror="this.style.display=\'none\'"><div class="em-overlay">'+a.emoji+'</div></div>'+
+      '<div class="nm">'+a.name+'</div><div class="en">'+a.en+'</div>'+
+      '<div class="tl">'+a.tag+'</div>'+
+      '<div class="sz">'+a.size+'</div>'+
+      '<div class="df">'+ds+'</div>'+
+      (isF?'':'<div class="ht">👆 点我看介绍</div>')+
+      '<div class="found-time">'+ftStr+'</div>'+
+      (hasP?'<img class="pht" src="'+S.p[a.id]+'" style="display:block">':'<img class="pht" id="ph-'+a.id+'">')+
+    '</div>'+
+    '<div class="cb">'+
+      '<h3>'+a.emoji+' '+a.name+' <span style="font-size:11px;color:#999">'+a.en+'</span></h3>'+
+      '<ul class="fs">'+a.facts.map(function(f){return '<li>'+f+'</li>'}).join('')+'</ul>'+
+      '<div class="qz"><div class="ql">🧠 考考若熙：</div>'+a.quiz+'<br>'+
+        '<details onclick="event.stopPropagation()"><summary style="cursor:pointer;color:#f57f17;font-size:11px;margin-top:4px">点击看答案</summary>'+
+        '<div style="margin-top:4px;color:#555;font-size:12px">'+a.ans+'</div></details></div>'+
+      '<div class="loc">📍 '+a.loc+'</div>'+
+      '<div class="br">'+
+        '<button class="bt bt-s" onclick="playAnimal(event,['+a.snd.join(',')+'])">🔊 叫声</button>'+
+        '<button class="bt bt-m" onclick="openMap(event,\''+a.map+'\')">🗺 地图</button>'+
+        '<button class="bt bt-v" onclick="vid(event,\''+a.vidQ+'\')">▶ 视频</button>'+
+      '</div>'+
+      '<div class="br" style="margin-top:4px">'+
+        '<button class="bt bt-p" onclick="photo(event,\''+a.id+'\')">📷 拍照</button>'+
+        '<button class="bt bt-f'+(isF?' done':'')+'" id="bf-'+a.id+'" onclick="found(event,\''+a.id+'\')">'+
+          (isF?'⭐ 已找到':'👀 找到了！')+'</button>'+
+      '</div>'+
+    '</div>'+
+    '</div></div>';
+  });
+  html+='</div>';
+  document.getElementById('cards').innerHTML=html;
+  upProg();
+}
+
+function flip(id){var c=document.getElementById('c-'+id);if(c)c.classList.toggle('flip')}
+
+function found(e,id){
+  e.stopPropagation();
+  if(S.f[id])return;
+  S.f[id]=Date.now();sv();
+  playFound();
+  var c=document.getElementById('c-'+id);if(c)c.classList.remove('flip');
+  setTimeout(function(){render();confetti();checkA()},400);
+}
+
+function vid(e,q){e.stopPropagation();window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(q),'_blank')}
+function openMap(e,url){e.stopPropagation();window.open(url,'_blank')}
+
+var curP=null;
+function photo(e,id){e.stopPropagation();curP=id;document.getElementById('cam').click()}
+document.getElementById('cam').addEventListener('change',function(e){
+  var file=e.target.files[0];if(!file||!curP)return;
+  var r=new FileReader();
+  r.onload=function(ev){
+    var img=new Image();img.onload=function(){
+      var c=document.createElement('canvas');c.width=200;c.height=200;
+      var ctx=c.getContext('2d');var m=Math.min(img.width,img.height);
+      ctx.drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,200,200);
+      S.p[curP]=c.toDataURL('image/jpeg',0.6);sv();render();
+    };img.src=ev.target.result;
+  };r.readAsDataURL(file);e.target.value='';
+});
+
+function upProg(){
   var n=Object.keys(S.f).length;
   document.getElementById('fc').textContent=n;
   document.getElementById('pf').style.width=Math.round(n/15*100)+'%';
@@ -227,71 +343,33 @@ function up(){
   document.getElementById('b3').className='badge'+(n>=15?' on':'');
   var hf=hidden.every(function(h){return S.f[h]});
   document.getElementById('b4').className='badge'+(hf?' on':'');
-  ids.forEach(function(id){
-    var f=document.getElementById('f-'+id);
-    if(S.f[id]){f.classList.add('found');f.classList.remove('not-found');document.getElementById('bf-'+id).textContent='✅ 已找到';document.getElementById('bf-'+id).classList.add('done')}
-    if(S.p[id]){var ph=document.getElementById('ph-'+id);ph.src=S.p[id];ph.style.display='block'}
-  });
 }
-function flip(id){
-  var card=document.getElementById('c-'+id);
-  if(card) card.classList.toggle('flip');
-}
-document.querySelectorAll('details').forEach(function(d){d.addEventListener('click',function(e){e.stopPropagation()})});
-function found(e,id){
-  e.stopPropagation();
-  if(S.f[id])return;
-  S.f[id]=Date.now();sv();
-  var card=document.getElementById('c-'+id);
-  if(card) card.classList.remove('flip');
-  setTimeout(function(){up();confetti();checkA()},300);
-}
-function vid(e,q){
-  e.stopPropagation();
-  window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(q),'_blank');
-}
-var curP=null;
-function photo(e,id){
-  e.stopPropagation();
-  curP=id;document.getElementById('cam').click();
-}
-document.getElementById('cam').addEventListener('change',function(e){
-  var file=e.target.files[0];if(!file||!curP)return;
-  var r=new FileReader();
-  r.onload=function(ev){
-    var img=new Image();
-    img.onload=function(){
-      var c=document.createElement('canvas');c.width=200;c.height=200;
-      var ctx=c.getContext('2d');
-      var m=Math.min(img.width,img.height);
-      ctx.drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,200,200);
-      S.p[curP]=c.toDataURL('image/jpeg',0.6);sv();up();
-    };img.src=ev.target.result;
-  };r.readAsDataURL(file);e.target.value='';
-});
+
 function confetti(){
   var c=document.getElementById('cc');
   var cols=['#ff5252','#ffeb3b','#4caf50','#2196f3','#ff9800','#e040fb'];
-  for(var i=0;i<30;i++){
+  for(var i=0;i<40;i++){
     var el=document.createElement('div');el.className='confetti';
     el.style.left=Math.random()*100+'%';el.style.top='-10px';
     el.style.backgroundColor=cols[Math.floor(Math.random()*cols.length)];
     el.style.borderRadius=Math.random()>.5?'50%':'2px';
     el.style.width=(Math.random()*8+6)+'px';el.style.height=(Math.random()*8+6)+'px';
     el.style.animation='cfall '+(Math.random()*1.5+1)+'s ease-out forwards';
-    el.style.animationDelay=Math.random()*0.3+'s';
+    el.style.animationDelay=Math.random()*0.5+'s';
     c.appendChild(el);setTimeout(function(e){e.remove()}.bind(null,el),3000);
   }
 }
+
 function checkA(){
   var n=Object.keys(S.f).length;
   if(n===5)showA('🥉 小小探险家！','若熙已经找到5只动物啦！继续加油！');
   else if(n===10)showA('🥈 动物达人！','哇！若熙找到10只动物了！还有5只等你发现！');
-  else if(n===15)showA('🥇🎉 动物园大师！！！','若熙太厉害了！15只动物全部找到！你是最棒的小探险家！');
+  else if(n===15)showA('🥇🎉 动物园大师！！！','若熙太厉害了！15只动物全部找到！\n你是最棒的小探险家！');
 }
 function showA(t,x){document.getElementById('mt').textContent=t;document.getElementById('mx').textContent=x;document.getElementById('modal').classList.add('show')}
-function resetAll(){if(confirm('确定要重新开始吗？')){S={f:{},p:{}};sv();location.reload()}}
-up();
+function resetAll(){if(confirm('确定要重新开始吗？所有记录都会清除')){S={f:{},p:{}};sv();render()}}
+
+render();
 </script>
 </body>
 </html>
